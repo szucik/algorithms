@@ -41,6 +41,7 @@ class LinkedList{
         }
 
         void deleteLast(){
+            //  TODO addEdge cases
             Node* head = this->head;
             Node* penultimateElement = nullptr;
             while(head!= this->tail) {
@@ -60,7 +61,8 @@ class LinkedList{
 int main(){
    LinkedList ll = LinkedList(10);
    ll.addElement(20);
-   ll.addElement(300);
+   ll.addElement(20);
    ll.deleteLast();
+   ll.displayList();
     return 0;
 };
