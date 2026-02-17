@@ -10,8 +10,6 @@ Ten projekt zawiera implementacje popularnych struktur danych i algorytmów w ce
 - Analityki matematycznej złożoności algorytmów (Big O notation)
 - Efektywnego wykorzystania pamięci
 
-
-
 ## 🔧 Technologia
 
 - **Język:** C++

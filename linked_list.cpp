@@ -6,7 +6,8 @@ class Node {
         int value;
         Node* next;
 
-        Node() {
+        Node(int value) {
+            this->value = value;
             this->next = nullptr;
         };
 };
@@ -18,31 +19,40 @@ class LinkedList{
         int size;
 
         LinkedList(int value) {
-            Node* newNode = new Node();
-            newNode->value = value;
+            Node* newNode = new Node(value);
             this->head = newNode;
             this->tail = newNode;
             this->size = 1; 
         }
 
         void addElement(int value) {
-            Node* newNode = new Node();
+            Node* newNode = new Node(value);
             this->tail->next = newNode;
             this->tail = newNode;
-            newNode->value = value;
             this-> size++;
         };
 
         void displayList(){
-            Node* node = this->head;
-            cout << node->value << endl;
-            while (node->next != nullptr)
-            {
-               cout << node->value << endl;
+           Node* node = this->head;
+            while(node!= nullptr){
+                cout << node->value <<endl;
+                node = node->next;
             }
-            
+        }
 
-        };
+        void deleteLast(){
+            Node* head = this->head;
+            Node* penultimateElement = nullptr;
+            while(head!= this->tail) {
+                penultimateElement = head;
+                head = head->next;
+            }
+            delete this->tail;   
+            this->tail = penultimateElement;
+            this->tail->next = nullptr;
+            this->size--; 
+            cout << this->size << endl;
+        }
 };
 
 
@@ -50,10 +60,7 @@ class LinkedList{
 int main(){
    LinkedList ll = LinkedList(10);
    ll.addElement(20);
-   ll.addElement(40);
-   ll.addElement(40);
-   ll.addElement(40);
-   ll.addElement(40);
-    ll.displayList();
+   ll.addElement(300);
+   ll.deleteLast();
     return 0;
 };
